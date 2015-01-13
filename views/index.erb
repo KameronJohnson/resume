@@ -1,0 +1,38 @@
+<h3>Add New Job:</h3>
+
+<!-- ADD A NEW JOB -->
+<form action="/add" method="post">
+  <label for="company_name">Company Name</label>
+  <input id="company_name" name="company_name" type="text">
+
+  <label for="phone_number">Phone Number</label>
+  <input id="phone_number" name="phone_number" type="text">
+
+  <label for="email">Email</label>
+  <input id="email" name="email" type="text">
+
+  <button type="submit">Add Job</button>
+</form>
+
+<!-- DELETE A JOB BASED ON USER INPUT OF COMPANY NAME -->
+<form action="/delete" method="post">
+  <label for="to_delete">Company Name to Delete:</label>
+  <input id="to_delete" name="to_delete" type="text">
+
+  <button class = "btn btn-warning" type="submit">Delete Job</button>
+</form>
+
+<!-- CLEAR ALL JOBS -->
+<form action="/clear" method="post">
+  <button class = "btn-large btn-danger" type="submit">Clear all jobs!</button>
+</form>
+
+
+<!-- LIST OF JOBS -->
+<h3>This is your list of jobs</h3>
+
+  <% @jobs.each() do |job| %>
+    <h4>Company Name: <%= job.get_company_name() %></h4>
+    <p><%= job.get_phone_number() %></p>
+    <p><%= job.get_email() %><br></p>
+  <% end %>
